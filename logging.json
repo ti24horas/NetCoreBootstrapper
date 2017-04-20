@@ -1,0 +1,25 @@
+﻿{
+  "simple": {
+    "console": {
+
+      "enabled": true,
+      "level": "Trace"
+
+    }
+  },
+  "serilog": {
+    "blockSize": "20MB",
+    "filesToKeep": 10,
+    "filename": "file.log",
+    "outputTemplate": "{abc}{xyz}{NewLine}",
+    "outputs": {
+      "console": "verbose",
+      "file": "verbose",
+      "http": {
+        "minimumLevel": "verbose",
+        "location": "http://contoso.com/",
+        "method": "POST"
+      }
+    }
+  }
+}

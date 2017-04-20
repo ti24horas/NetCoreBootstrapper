@@ -1,0 +1,38 @@
+﻿{
+  "plugins": [
+    { "$type": "Bootstrapper.LoggingSettingsPlugin" },
+    { "$type": "Bootstrapper.SettingsConfigPlugin" }
+  ],
+  "logging": {
+    "$include": "logging.json"
+  },
+  "settings": {
+    "load": [
+      {
+        "$type": "json",
+        "path": "settins.json",
+        "optional": true,
+        "reloadOnChange": true
+      },
+      {
+        "$type": "json",
+        "path": "settings.{env}.json",
+        "optional": true,
+        "reloadOnChange": true
+      },
+      {
+        "$type": "registry",
+        "optional": true,
+        "reloadOnChange": true,
+        "path": "HKLM://software/gmk/parametros/stringconexoes",
+        "alias": "StringConexoes"
+      }
+    ],
+    "plugins": [ { "$type": "Bootstrapper.JsonConfigPlugin" } ]
+  },
+
+  "services": {
+    "runner": { "$type": "Bootstrapper.Runner" },
+    "plugins": [ { "type": "Bootstrapper.Loader" } ]
+  }
+}
